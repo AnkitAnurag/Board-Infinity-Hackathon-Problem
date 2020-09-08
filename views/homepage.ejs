@@ -1,0 +1,34 @@
+<%- include("partials/header") %>
+
+<h1>Backend Hackathon Problem</h1>
+
+<h2>Board Infinity</h2>
+
+<h1>Add Data ToDo</h1>
+
+<form action="/add" method="POST">
+    <div class="form-group">
+        <input class="form-control" type="text" name="tname" placeholder="Task Name" id="tname">
+    </div>
+    <div class="form-group">
+        <textarea class="form-control" type="text" name="desc" placeholder="Task Description" id="desc"></textarea>
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="text" name="cname" placeholder="Creator" id="cname">
+    </div>
+    <div class="form-group">
+        <!-- <label for="start">Duration : </label>
+        <input type="date" id="start" name="duration"
+                    min="201-01-01" max="2040-12-31"> -->
+        <input class="form-control" type="number" name="duration" placeholder="Duration(in minutes)" id="duration">
+    </div>
+    <div class="form-group">
+        <button class="btn btn-lg btn-primary btn-block">
+            Submit!
+        </button>
+    </div>
+</form>
+
+<a href="/list">Show all Data</a>
+
+<%- include("partials/footer") %>
