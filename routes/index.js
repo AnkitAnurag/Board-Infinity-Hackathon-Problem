@@ -16,7 +16,8 @@ router.post("/add", function(req, res){
 	var desc = req.body.desc;
 	var cname = req.body.cname;
     var duration = req.body.duration;
-    var createDate = date.format(new Date(), 'ddd, MMM DD YYYY, HH:mm:ss');
+    //var createDate = date.format(new Date.toISOString(), 'ddd, MMM DD YYYY, HH:mm:ss');
+    var createDate = new Date().toUTCString();
 	var newObj = {taskName: tname , taskDesc: desc, creator: cname, duration: duration, createdAt: createDate };
 	Todos.create(newObj, function(err,newlycreated){
 	if(err){
