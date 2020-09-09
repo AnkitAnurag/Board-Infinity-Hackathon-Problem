@@ -15,11 +15,6 @@ const TodosSchema = new mongoose.Schema({
   },
   createdAt: {
     type: String,
-  },
-  expire_at: {
-    type: Date,
-    default: Date.now,
-    expires: duration
   }
 });
 

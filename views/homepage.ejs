@@ -1,34 +1,34 @@
 <%- include("partials/header") %>
 
-<h1>Backend Hackathon Problem</h1>
+<br>
+<h1 style="text-align: center; color:indianred;" class="w3-lobster">Backend Hackathon Problem (Board Infinity)</h1>
 
-<h2>Board Infinity</h2>
+<br>
 
-<h1>Add Data ToDo</h1>
+<h1 style="text-align: center; text-decoration: underline;" class="w3-lobster">Add Data ToDo</h1>
 
-<form action="/add" method="POST">
-    <div class="form-group">
-        <input class="form-control" type="text" name="tname" placeholder="Task Name" id="tname">
-    </div>
-    <div class="form-group">
-        <textarea class="form-control" type="text" name="desc" placeholder="Task Description" id="desc"></textarea>
-    </div>
-    <div class="form-group">
-        <input class="form-control" type="text" name="cname" placeholder="Creator" id="cname">
-    </div>
-    <div class="form-group">
-        <!-- <label for="start">Duration : </label>
-        <input type="date" id="start" name="duration"
-                    min="201-01-01" max="2040-12-31"> -->
-        <input class="form-control" type="number" name="duration" placeholder="Duration(in minutes)" id="duration">
-    </div>
-    <div class="form-group">
-        <button class="btn btn-lg btn-primary btn-block">
-            Submit!
-        </button>
-    </div>
-</form>
-
-<a href="/list">Show all Data</a>
+<br>
+<div class="container col-5">
+    <form action="/add" method="POST">
+        <div class="form-group">
+            <input class="form-control" type="text" name="tname" placeholder="Task Name" id="tname">
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" type="text" name="desc" placeholder="Task Description" id="desc"></textarea>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" name="cname" placeholder="Creator" id="cname">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="number" name="duration" placeholder="Duration(in minutes)" id="duration">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-lg btn-primary btn-block w3-lobster">
+                Submit!
+            </button>
+            <a href="/list" class="btn btn-lg btn-warning btn-block w3-lobster">Show all ToDos</a>
+        </div>
+    </form>
+</div>
 
 <%- include("partials/footer") %>
