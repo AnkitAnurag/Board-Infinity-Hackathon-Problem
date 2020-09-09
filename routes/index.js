@@ -26,11 +26,11 @@ router.post("/add", function(req, res){
 
 	//console.log(createDate.slice(10,12));
 	//var hour=createDate.slice(10,12);
-	var hour=new Date().getHours();
+	var hour=new Date().getHours()+5;
 	
 	//console.log(createDate.slice(13,15));
 	//var min=createDate.slice(13,15);
-	var min=new Date().getMinutes();
+	var min=new Date().getMinutes()+30;
 	
 	//console.log(createDate.slice(19,21));
 	var ampm=createDate.slice(19,21);
