@@ -18,24 +18,15 @@ router.post("/add", function(req, res){
     var duration = req.body.duration;
     //var createDate = date.format(new Date(), 'ddd, MMM DD YYYY, HH:mm:ss');
 	var createDate = new Date().toLocaleString(undefined, {timeZone: 'Asia/Kolkata'});
-	//console.log(createDate.getHours());
-
 
 	var datenow=new Date().getHours();
-	console.log("DATE NOW: ",datenow);
 
-	//console.log(createDate.slice(10,12));
-	//var hour=createDate.slice(10,12);
 	var hour=new Date().getHours();
 	
-	//console.log(createDate.slice(13,15));
-	//var min=createDate.slice(13,15);
 	var min=new Date().getMinutes();
 	
-	//console.log(createDate.slice(19,21));
 	var ampm=createDate.slice(19,21);
 
-	//console.log(ampm=="AM");
 
 	var fhr,fmin;
 	//DURATION CALCULATION
@@ -58,15 +49,14 @@ router.post("/add", function(req, res){
 		}
 	}
 
-	//CONVERTION OF DURATION TO 24-HOUR FORMAT
-	// if(ampm=="PM"){
-	// 	fhr+=12;
-	// }
+	if(fhr>=24){
+		fhr=fhr-24;
+	}
 
 	console.log("HOUR:",fhr);
 	console.log("MINUTE:",fmin);
 
-	//console.log(parseInt(hour)+parseInt(min));
+
 	var newObj = {taskName: tname , taskDesc: desc, creator: cname, duration: duration, createdAt: createDate };
 	Todos.create(newObj, function(err,newlycreated){
 	if(err){
@@ -74,7 +64,6 @@ router.post("/add", function(req, res){
 	}
 	else{
 		res.redirect("/list");
-		console.log(newlycreated);
 		var task=cron.schedule(`0 ${fmin} ${fhr} * * *`, () => {
 			Todos.findOne({_id: newlycreated._id},function(err, todos){
 				if(err){
